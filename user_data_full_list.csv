@@ -159,7 +159,7 @@ Bike Helmets & Protective Gear,1400,1191
 Bike Parts & Repair,1401,1191
 Cruiser Bikes,1403,1191
 Cycling Apparel,1407,1191
-Kid's Bikes,1404,1191
+Kid`s Bikes,1404,1191
 Mountain Bikes,1405,1191
 Road Bikes,1406,1191
 Boats & Watercraft,1140,47
@@ -274,7 +274,7 @@ Massage Therapy,557,145
 Weight Loss,236,44
 Books & Literature,22,0
 Book Retailers,355,22
-Children's Literature,1183,22
+Children`s Literature,1183,22
 E-Books,608,22
 Fan Fiction,540,22
 Literary Classics,1184,22
@@ -653,7 +653,7 @@ Bakeries,1573,121
 Butchers,1574,121
 Convenience Stores,1575,121
 Delicatessens,1576,121
-Farmers' Markets,1577,121
+Farmers` Markets,1577,121
 Restaurants,276,71
 Catering,1524,276
 Dining Guides,917,276
@@ -711,7 +711,7 @@ Tile Games,1549,8
 Word Games,1494,8
 Health,45,0
 Aging & Geriatrics,623,45
-Alzheimer's Disease,624,623
+Alzheimer`s Disease,624,623
 Alternative & Natural Medicine,499,45
 Acupuncture & Chinese Medicine,1239,499
 Cleansing & Detoxification,1238,499
@@ -748,7 +748,7 @@ Medical Devices & Equipment,251,45
 Assistive Technology,1352,251
 Mobility Equipment & Accessories,1353,1352
 Medical Facilities & Services,256,45
-Doctors' Offices,634,256
+Doctors` Offices,634,256
 Hospitals & Treatment Centers,250,256
 Medical Procedures,635,256
 Medical Tests & Exams,943,635
@@ -756,7 +756,7 @@ Surgery,944,635
 Physical Therapy,500,256
 Medical Literature & Resources,253,45
 Medical Photos & Illustration,945,253
-Men's Health,636,45
+Men`s Health,636,45
 Mental Health,437,45
 Anxiety & Stress,639,437
 Depression,640,437
@@ -795,7 +795,7 @@ Vision Care,246,45
 Eye Exams & Optometry,1502,246
 Eyeglasses & Contacts,1224,246
 Laser Vision Correction,1503,246
-Women's Health,648,45
+Women`s Health,648,45
 Hobbies & Leisure,65,0
 Clubs & Organizations,189,65
 Fraternal Orders & Service Clubs,1468,189
@@ -825,7 +825,7 @@ Islamic Holidays,1275,678
 Jewish Holidays,1124,678
 New Year,1271,678
 Thanksgiving,1125,678
-Valentine's Day,1122,678
+Valentine`s Day,1122,678
 Weddings,293,977
 Water Activities,1002,65
 Boating,459,1002
@@ -1077,8 +1077,8 @@ Marriage,1133,1131
 Romance,1135,1131
 Troubled Relationships,1260,1131
 Divorce & Separation,1261,1260
-Men's Interests,594,14
-Men's Interests (Mature),525,594
+Men`s Interests,594,14
+Men`s Interests (Mature),525,594
 Religion & Belief,59,14
 Astrology & Divination,448,59
 Buddhism,862,59
@@ -1121,7 +1121,7 @@ Psychology,543,509
 Subcultures & Niche Interests,502,14
 Goth Subculture,503,502
 Science Fiction & Fantasy,676,502
-Women's Interests,325,14
+Women`s Interests,325,14
 Pets & Animals,66,0
 Animal Products & Services,882,66
 Animal Welfare,883,882
@@ -1210,7 +1210,7 @@ Apparel Services,1228,68
 Athletic Apparel,983,68
 Casual Apparel,984,68
 T-Shirts,428,984
-Children's Clothing,985,68
+Children`s Clothing,985,68
 Clothing Accessories,124,68
 Gems & Jewelry,350,124
 Rings,1486,350
@@ -1226,14 +1226,14 @@ Casual Shoes,1490,697
 Formal Wear,990,68
 Bridal Wear,1597,990
 Headwear,991,68
-Men's Clothing,992,68
+Men`s Clothing,992,68
 Outerwear,993,68
 Sleepwear,994,68
 Suits & Business Attire,1598,68
 Swimwear,995,68
 Undergarments,530,68
 Uniforms & Workwear,996,68
-Women's Clothing,997,68
+Women`s Clothing,997,68
 Dresses,1632,997
 Skirts,1631,997
 Auctions,292,18
@@ -1410,7 +1410,7 @@ Cape Town,5022,5021
 Johannesburg,5023,5021
 Western Africa,5024,5001
 Burkina Faso,5712,5024
-Côte d'Ivoire,5637,5024
+Côte d`Ivoire,5637,5024
 Ghana,5025,5024
 Mali,5711,5024
 Niger,5710,5024
@@ -1452,7 +1452,7 @@ Gansu,5661,5368
 Ningxia,5662,5368
 Qinghai,5663,5368
 Shaanxi,5402,5368
-Xi'an,5046,5402
+Xi`an,5046,5402
 Xinjiang,5403,5368
 South Central China,5366,5033
 Anhui,5655,5366
@@ -1857,7 +1857,7 @@ Picardy,5691,5532
 Upper Normandy,5689,5532
 South East France,5528,5182
 Corsica,5617,5528
-Provence-Alpes-Côte d'Azur,5692,5528
+Provence-Alpes-Côte d`Azur,5692,5528
 Marseille,5184,5692
 Nice,5185,5692
 Rhône-Alpes,5693,5528
