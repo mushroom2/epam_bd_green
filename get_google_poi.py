@@ -1,28 +1,51 @@
 import requests
+store = []
+poikeys = []
+from mysmallorm import SqliteConnector
+import json
+import time
 
+def export_to_file(d):
+    with open('output.json', 'w') as outfile:
+        json.dump(d, outfile)
 
-def get_struct(data):
-    print(data['id'], data['name'])
 
 api_key = 'AIzaSyD7biSf5Aa5lUFmoDX2nYu8eGbsuzB1bY8'
-x1 = 49.8596
-y1 = 23.8834
-x2 = 49.8135
-y2 = 24.0784
+
+# Lemberg
+y1 = 49.8696
+x1 = 23.9434
+y2 = 49.7705
+x2 = 24.1575
+
 rad = 1000
-#base_url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=49.8383,24.0232&keyword=poi&radius=1000&key={}'.format(api_key)
-while x1 > x2:
-    while y1 < y2:
-        base_url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={},{}&keyword=poi&radius=1000&key={}'.format(
-            x1, y1, api_key)
-        r = requests.get(base_url)
-        for i in r.json()['results']:
-            get_struct(i)
-        print(y1)
-        y1 += 0.001
-    print(x1)
-    x1 -= 0.001
 
 
-print(x1 - x2)
-print(y1 - y2)
+def get_poi(url, np=False):
+    if np:
+        print('### next page! ###')
+    r = requests.get(url)
+    for i in r.json()['results']:
+        if i['id'] not in poikeys:
+            print(i['id'], i['name'])
+            store.append(i)
+            poikeys.append(i['id'])
+    if r.json().get('next_page_token'):
+        nexpageurl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken={}&key={}'.format(
+            r.json()['next_page_token'], api_key)
+        time.sleep(2)  # token delay
+        get_poi(nexpageurl, np=True)
+
+
+while y1 > y2:
+    while x1 < x2:
+        base_url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={},{}&type=point_of_interest&radius=1000&key={}'.format(
+            y1, x1, api_key)
+        get_poi(base_url)
+        print(y1, x1)
+        x1 += 0.013
+    print(y1)
+    y1 -= 0.009
+    x1 = 23.9434
+
+export_to_file(store)

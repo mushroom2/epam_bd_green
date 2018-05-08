@@ -1,22 +1,19 @@
 import csv
 import sqlite3 as lite
-import sys
-con = lite.connect('db')
-cur = con.cursor()
-def add_row_interests(cat, id):
 
+class SqliteConnector(object):
+    def __init__(self):
+        self.con = lite.connect('db')
+        self.cur = self.con.cursor()
 
-    cur.execute('''insert into "Interests"  values ('{}', {})'''.format(cat, id))
+    def add_row_interests(self, id, name, address, lon, lat, rating, tags):
+        self.cur.execute('''insert into "Places"  values ('{}', '{}', '{}', {}, {}, {}, '{}')'''.format(id, name, address, lon, lat, rating, tags))
 
+    def commit_and_close(self):
+        self.con.commit()
+        #self.con.close()
 
-
-def update_row_interests(cat, id):
-
-    cur.execute('''update "Interests" set "InterestName" = '{}', "InterestId" = {} where "InterestId" = {}'''.format(cat, id, id))
-
-
-
-
+'''
 with open('user_data_full_list.csv', newline='') as csvfile:
     dialect = csv.Sniffer().sniff(csvfile.read(1024))
     csvfile.seek(0)
@@ -31,3 +28,4 @@ with open('user_data_full_list.csv', newline='') as csvfile:
 
 con.commit()
 con.close()
+'''
