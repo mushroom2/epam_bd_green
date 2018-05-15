@@ -21,20 +21,20 @@ x2 = 24.1575
 rad = 1000
 
 
-def get_poi(url, np=False):
-    if np:
+def get_poi(url, next_page=False):
+    if next_page:
         print('### next page! ###')
-    r = requests.get(url)
-    for i in r.json()['results']:
+    poi = requests.get(url)
+    for i in poi.json()['results']:
         if i['id'] not in poikeys:
             print(i['id'], i['name'])
             store.append(i)
             poikeys.append(i['id'])
-    if r.json().get('next_page_token'):
-        nexpageurl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken={}&key={}'.format(
-            r.json()['next_page_token'], api_key)
+    if poi.json().get('next_page_token'):
+        nextpageurl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken={}&key={}'.format(
+            poi.json()['next_page_token'], api_key)
         time.sleep(2)  # token delay
-        get_poi(nexpageurl, np=True)
+        get_poi(nextpageurl, True)
 
 
 while y1 > y2:
