@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Green Team App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css')}}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/JQuery.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
+
+
+</head>
+<body>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+<h1 class="tt">POI planner</h1>
+    <div class="row">
+        <div id="map" class="col-md-4"></div>
+        <div class="col-md-4">
+            <form class="form-group">
+                <div>
+                    <label for="lng-for">Lng for</label>
+                    <input id="lng-for" type="text" class="form-control">
+                    <label for="lat-for">Lat for</label>
+                    <input id="lat-for" type="text" class="form-control">
+                </div>
+                <label for="lng-to">Lng to</label>
+                <input id="lng-to" type="text" class="form-control">
+                <label for="lat-to">Lat to</label>
+                <input id="lat-to" type="text" class="form-control">
+                <button class="btn btn-success" id="get-poi">Get POI!</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+      function initMap() {
+        // Create a map object and specify the DOM element for display.
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 49.4948, lng: 24.0051},
+          zoom: 8
+        });
+      }
+
+      $('#get-poi').click(function () {
+      consol.log('ping')
+      })
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2b_w5xsmtLBqr5Rpm1o9mGIZclhYo-Tc&callback=initMap" async defer></script>
+</body>
+</html>
