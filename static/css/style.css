@@ -9,3 +9,7 @@
 #get-poi{
     margin-top: 15px;
 }
+
+.loadingCont{
+    display: none;
+}

@@ -1,15 +1,8 @@
 import requests
-store = []
-poikeys = []
-from mysmallorm import SqliteConnector
 import json
 import time
-
-def export_to_file(d):
-    with open('output.json', 'w') as outfile:
-        json.dump(d, outfile)
-
-
+store = []
+poikeys = []
 api_key = 'AIzaSyD7biSf5Aa5lUFmoDX2nYu8eGbsuzB1bY8'
 
 # Lemberg
@@ -19,6 +12,11 @@ y2 = 49.7705
 x2 = 24.1575
 
 rad = 1000
+
+
+def export_to_file(d):
+    with open('output.json', 'w') as outfile:
+        json.dump(d, outfile)
 
 
 def get_poi(url, next_page=False):

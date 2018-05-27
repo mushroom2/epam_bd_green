@@ -29,7 +29,7 @@
                 <button class="btn btn-success" id="get-poi">Get POI!</button>
             </div>
         </div>
-        <div class="col-md-4"><a href="{{ url_for('get_poi_by_coords') }}">test</a></div>
+        <div class="col-md-4"><div class="loadingCont">Loading. . . <br><img src="{{ url_for('static', filename='loader.gif')}}"></div></div>
     </div>
 
     <script>
@@ -51,7 +51,14 @@
               'lng_to': $('#lng-to').val(),
               'lat_to': $('#lat-to').val(),
           }),
+          beforeSend: function(){
+            console.log('sending...');
+            $('#get-poi').prop('disabled', true);
+            $('.loadingCont').css('display', 'block')
+          },
           success: function () {
+              $('#get-poi').prop('disabled', false);
+              $('.loadingCont').css('display', 'none');
               console.log('success!')
           }
       })
