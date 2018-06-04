@@ -17,15 +17,13 @@
         <div class="col-md-4">
             <div class="form-group">
                 <div>
-                    <label for="lng-for">Lng for</label>
-                    <input id="lng-for" type="text" class="form-control">
-                    <label for="lat-for">Lat for</label>
-                    <input id="lat-for" type="text" class="form-control">
+                    <label for="lng-for">Longitude</label>
+                    <input id="lng-for" type="text" class="form-control" value="49.8696">
+                    <label for="lat-for">Latitude</label>
+                    <input id="lat-for" type="text" class="form-control" value="23.9434">
                 </div>
-                <label for="lng-to">Lng to</label>
-                <input id="lng-to" type="text" class="form-control">
-                <label for="lat-to">Lat to</label>
-                <input id="lat-to" type="text" class="form-control">
+                <label for="distance">Distance</label>
+                <input id="distance" type="text" class="form-control" value="7">
                 <button class="btn btn-success" id="get-poi">Get POI!</button>
             </div>
         </div>
@@ -48,8 +46,7 @@
           data: JSON.stringify({
               'lng_for': $('#lng-for').val(),
               'lat_for': $('#lat-for').val(),
-              'lng_to': $('#lng-to').val(),
-              'lat_to': $('#lat-to').val(),
+              'distance': $('#distance').val()
           }),
           beforeSend: function(){
             console.log('sending...');
