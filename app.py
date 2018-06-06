@@ -44,28 +44,6 @@ async def get_poi_from_next_page(results):
     return await asyncio.gather(*tasks)
 
 
-# async def get_poi(url, poi_storage, next_page=False):
-#     async with ClientSession(loop=loop) as session:
-#         async with session.get(url) as response:
-#             tasks = []
-#             poi_response = await response.json()
-#             if next_page and poi_response.json()['status'] == 'INVALID_REQUEST':
-#                 print('### next page! ###')
-#                 asyncio.sleep(0.1)
-#                 tasks.append(get_poi(url, poi_storage, True))
-#             for poi in poi_response['results']:
-#                 if poi['id'] not in poi_storage:
-#                     print(poi['id'], poi['name'])
-#                     poi_storage[poi['id']] = poi
-#             if poi_response.get('next_page_token'):
-#                 next_page = next_page_url.format(
-#                     poi_response['next_page_token'], api_key)
-#                 # time.sleep(2)  # token delay
-#                 tasks.append(get_poi(next_page, poi_storage, True))
-#             else:
-#                 await asyncio.gather(*tasks)
-
-
 async def find_and_save_poi_on_geo_coord_system(y_coord, x_coord, max_distance, key):
     # central point of searching
     tasks = [get_poi(base_url.format(y_coord, x_coord, key))]
@@ -99,9 +77,6 @@ async def get_poi_by_coords():
         results_from_second_page = await get_poi_from_next_page(results)
         time.sleep(2)
         results_from_third_page = await get_poi_from_next_page(results_from_second_page)
-        print(results)
-        print(results_from_second_page)
-        print(results_from_third_page)
 
         for result in results + results_from_second_page + results_from_third_page:
             for poi in result['results']:
