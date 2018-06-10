@@ -5,7 +5,7 @@ from aiohttp import ClientSession
 from quart import Quart, render_template, request
 import json
 from math import cos, radians
-
+from quart import jsonify
 api_key = 'AIzaSyAjh9FsfkEhyISZSfY-JND8zw52JztuKLg'
 base_url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={},{}&type=point_of_interest&radius=1000&key={}'
 next_page_url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken={}&key={}'
@@ -87,5 +87,17 @@ async def get_poi_by_coords():
         return 'ok'
 
 
+@app.route('/jsonresult')
+def summary():
+    with open('output.json') as f:
+        res = json.load(f)
+        response = app.response_class(
+            response=json.dumps(res),
+            status=200,
+            mimetype='application/json'
+        )
+        return response
+
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5222)
