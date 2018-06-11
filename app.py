@@ -1,6 +1,6 @@
 import asyncio
 import time
-
+from mysmallorm import get_dict_of_users
 from aiohttp import ClientSession
 from quart import Quart, render_template, request
 import json
@@ -20,7 +20,8 @@ loop = asyncio.get_event_loop()
 
 @app.route("/")
 async def index():
-    return await render_template('index.html')
+    users = get_dict_of_users()
+    return await render_template('index.html', users=users)
 
 
 def export_to_file(storage):
@@ -97,6 +98,17 @@ def summary():
             mimetype='application/json'
         )
         return response
+
+
+@app.route('/get_interest/user/<id>')
+def get_interests(id):
+    users = get_dict_of_users()
+    response = app.response_class(
+        response=json.dumps(users[int(id)]),
+        status=200,
+        mimetype='application/json'
+    )
+    return response
 
 
 if __name__ == '__main__':

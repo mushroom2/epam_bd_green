@@ -11,9 +11,42 @@
 </head>
 <body>
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
-<h1 class="tt">POI planner</h1>
-    <div class="row">
-        <div id="map" class="col-md-4"></div>
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Poi Planner</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav" id="interests-cont">
+          </ul>
+         <form class="navbar-form navbar-right">
+         <div class="form-group">
+             <label for="select-user">User</label>
+             <select id="select-user" class="form-control">
+                 <option selected disabled>User</option>
+                 {% for user in users %}
+                    <option value="{{ users[user]['id']}}">{{ users[user]['name']}}</option>
+                 {% endfor %}
+             </select>
+         </div>
+        </form>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="row" id="baserow">
+        <div id="mapwrapper" class="col-md-4">
+            <div id="map"></div>
+        </div>
         <div class="col-md-4">
             <div class="form-group">
                 <div>
@@ -33,7 +66,7 @@
     <script>
       function initMap() {
         // Create a map object and specify the DOM element for display.
-        var map = new google.maps.Map(document.getElementById('map'), {
+        let map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 49.4948, lng: 24.0051},
           zoom: 8
         });
@@ -60,6 +93,20 @@
           }
       })
       })
+
+      $('#select-user').change(function (e) {
+      $.ajax({
+          url: "/get_interest/user/" + e.target.value,
+          method: 'get',
+          success: function (d) {
+              console.log(d);
+              let res = '';
+              d.interests.map(el => (el.name !== null ? res += `<li><a id="${el.id}" href="#">${el.name}</a></li>` : null));
+              $('#interests-cont').html(res)
+          }
+      })
+      })
+
 
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2b_w5xsmtLBqr5Rpm1o9mGIZclhYo-Tc&callback=initMap" async defer></script>
