@@ -49,8 +49,8 @@ async def find_and_save_poi_on_geo_coord_system(y_coord, x_coord, max_distance, 
     # central point of searching
     tasks = [get_poi(base_url.format(y_coord, x_coord, key))]
     x_step = 0
-    y_step = 1 / 110.574
     for distance_x in range(max_distance):
+        y_step = 1 / 110.574
         for distance_y in range(max_distance):
             tasks.append(get_poi(base_url.format(y_coord + y_step, x_coord + x_step, key)))
             tasks.append(get_poi(base_url.format(y_coord - y_step, x_coord + x_step, key)))
