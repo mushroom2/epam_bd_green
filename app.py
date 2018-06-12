@@ -5,7 +5,6 @@ from aiohttp import ClientSession
 from quart import Quart, render_template, request
 import json
 from math import cos, radians
-from quart import jsonify
 api_key = 'AIzaSyAjh9FsfkEhyISZSfY-JND8zw52JztuKLg'
 base_url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={},{}&type=point_of_interest&radius=1000&key={}'
 next_page_url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken={}&key={}'
@@ -101,7 +100,7 @@ def summary():
 
 
 @app.route('/get_interest/user/<id>')
-def get_interests(id):
+def get_interests():
     users = get_dict_of_users()
     response = app.response_class(
         response=json.dumps(users[int(id)]),
@@ -112,4 +111,4 @@ def get_interests(id):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5222)
+    app.run(host='0.0.0.0', port=5000)
