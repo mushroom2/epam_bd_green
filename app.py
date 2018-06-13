@@ -5,9 +5,11 @@ from aiohttp import ClientSession
 from quart import Quart, render_template, request
 import json
 from math import cos, radians
+from run_spark_jobe import run_sj
 api_key = 'AIzaSyAjh9FsfkEhyISZSfY-JND8zw52JztuKLg'
 base_url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={},{}&type=point_of_interest&radius=1000&key={}'
 next_page_url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken={}&key={}'
+
 # Lemberg
 # y1 = 49.8696
 # x1 = 23.9434
@@ -86,6 +88,7 @@ async def get_poi_by_coords():
                     storage.append(poi)
 
         export_to_file(storage)
+        run_sj()
         return 'ok'
 
 
