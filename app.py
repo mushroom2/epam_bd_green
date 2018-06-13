@@ -102,7 +102,7 @@ def summary():
 
 
 @app.route('/get_interest/user/<id>')
-def get_interests():
+def get_interests(id):
     users = get_dict_of_users()
     response = app.response_class(
         response=json.dumps(users[int(id)]),
