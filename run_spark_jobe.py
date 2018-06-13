@@ -11,7 +11,7 @@ def run_sj():
     client.connect(hostname=host, username=user, password=secret, port=port)
     stdin, stdout, stderr = client.exec_command('source /opt/rh/python27/enable')
     data = stdout.read() + stderr.read()
-    stdin, stdout, stderr = client.exec_command('spark-submin ./spark1.py')
+    stdin, stdout, stderr = client.exec_command('spark-submit ./spark1.py')
     data = stdout.read() + stderr.read()
     print(data)
     client.close()
