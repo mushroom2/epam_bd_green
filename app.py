@@ -66,7 +66,8 @@ async def find_and_save_poi_on_geo_coord_system(y_coord, x_coord, max_distance, 
 async def get_poi_by_coords():
     if request.method == 'POST':
         response_data = await request.get_json(force=True)
-        storage = {}
+        ids = []
+        storage = []
 
         print(response_data)
         y1 = float(response_data['lng_for'])
@@ -81,8 +82,9 @@ async def get_poi_by_coords():
 
         for result in results + results_from_second_page + results_from_third_page:
             for poi in result['results']:
-                if poi['id'] not in storage:
-                    storage[poi['id']] = poi
+                if poi['id'] not in ids:
+                    ids.append(poi['id'])
+                    storage.append(poi)
 
         export_to_file(storage)
         return 'ok'
