@@ -61,3 +61,7 @@ def get_dict_of_users():
                 us = User(row[1], row[0])
                 us.append_interests(row[3], row[2])
     return res
+
+
+if __name__ == '__main__':
+    print(get_dict_of_users())
