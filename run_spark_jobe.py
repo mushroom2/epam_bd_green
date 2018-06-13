@@ -2,7 +2,7 @@ import paramiko
 
 
 def run_sj():
-    host = 'sandbox-hdp.hortonworks.com'
+    host = '127.0.0.1'
     user = 'root'
     secret = 'sfera1488'
     port = 2222
