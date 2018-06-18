@@ -4,7 +4,7 @@ import paramiko
 def run_sj():
     host = '127.0.0.1'
     user = 'root'
-    secret = 'sfera1488'
+    secret = yourpass
     port = 2222
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
